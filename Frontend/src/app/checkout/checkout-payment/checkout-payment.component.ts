@@ -34,7 +34,6 @@ export class CheckoutPaymentComponent implements OnInit{
     
     this.toastr.success('Payment Received');
     this.basketService.deleteLocalBasket();
-    this.basketService.deleteBasket();
     localStorage.removeItem(this.checkoutService.orderKey);
     if (this.order){
       const navigationExtras: NavigationExtras = { state: this.order };

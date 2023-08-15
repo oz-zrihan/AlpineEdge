@@ -21,6 +21,10 @@ async function addItem(
   item: BasketItemModel,
   basketId: string
 ): Promise<BasketItemModel> {
+
+  console.log("item, basketId ==== 1");
+  console.log(item, basketId);
+  
   //Query
   const sql = `INSERT INTO basketItem  VALUES(DEFAULT, ?, ?, ?, ?, ?, ?, ?)`;
 
@@ -37,9 +41,14 @@ async function addItem(
 
   item.basketItemId = items.insertId;
 
+  console.log("basketId ,items.insertId  ====== 2");
+  console.log(basketId ,items.insertId);
+  
   //Query
   const junctionSql = `INSERT INTO basketJunction VALUES(DEFAULT, ?, ?)`;
 
+  console.log(junctionSql , basketId, item.basketItemId);
+  
   // Execute:
   await dal.execute(junctionSql, [basketId, item.basketItemId]);
 

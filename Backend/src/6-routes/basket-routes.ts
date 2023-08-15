@@ -26,7 +26,7 @@ router.post(
   "/",
   async (request: Request, response: Response, next: NextFunction) => {
     try {
-      const basket = new BasketModel(request.body);
+      const basket = new BasketModel(request.body);      
       const createdBasket = await basketService.createBasket(basket);
       response.json(createdBasket);
     } catch (err: any) {

@@ -4,13 +4,13 @@ import BasketItemModel from "./basket-item-model";
 
 interface BasketData {
   basketId: string;
-  basketItems: BasketItemModel[];
+  basketItems?: BasketItemModel[];
   totalPrice: number;
 }
 
 class BasketModel implements BasketData {
   public basketId: string;
-  public basketItems: BasketItemModel[]; 
+  public basketItems?: BasketItemModel[]; 
   public totalPrice: number;
 
   public constructor(basket: BasketData) {
@@ -22,11 +22,14 @@ class BasketModel implements BasketData {
   // ============ validation
   private static postValidationSchema = Joi.object({
     basketId: Joi.string().required(),
+    basketItems: Joi.any().optional(),
     totalPrice: Joi.number().min(0).optional(),
   });
 
   public validatePost(): void {
     const result = BasketModel.postValidationSchema.validate(this);
+    console.log(result);
+    
     if (result.error) throw new ValidationError(result.error.message);
   }
 

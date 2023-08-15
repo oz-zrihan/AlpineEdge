@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-3">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="text-center mb-4">
+          <h1 class="mb-3">Contact Us</h1>
+        </div>
+  
+        <app-text-input
+          [formControl]="contactForm.controls['email']"
+          [label]="'Email address'"
+        ></app-text-input>
+
+        <app-text-input
+          [formControl]="contactForm.controls['name']"
+          [label]="'Name'"
+        ></app-text-input>
+        
+        <app-text-input
+          [formControl]="contactForm.controls['subject']"
+          [label]="'Subject'"
+        ></app-text-input>
+
+        <app-text-input
+          [formControl]="contactForm.controls['message']"
+          [label]="'Massage'"
+          [type]="'textarea'"
+        ></app-text-input>
+
+        <div class="d-grid">
+          <button
+            [disabled]="contactForm.invalid"
+            class="btn btn-sm btn-primary mt-3"
+            type="submit"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

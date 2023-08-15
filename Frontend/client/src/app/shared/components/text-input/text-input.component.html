@@ -1,0 +1,78 @@
+<div class="form-floating mb-3">
+  <ng-container *ngIf="type !== 'textarea'; else textareaBlock">
+    <input
+      type="{{ type }}"
+      [formControl]="control"
+      class="form-control"
+      placeholder="{{ label }}"
+      [ngClass]="
+        control.touched ? (control.invalid ? 'is-invalid' : 'is-valid') : null
+      "
+    />
+  </ng-container>
+  <ng-template #textareaBlock>
+    <textarea
+      [formControl]="control"
+      class="form-control textarea"
+      placeholder="{{ label }}"
+      [ngClass]="
+        control.touched ? (control.invalid ? 'is-invalid' : 'is-valid') : null
+      "
+    ></textarea>
+  </ng-template>
+
+  <div
+    *ngIf="control.status === 'PENDING'"
+    class="fa fa-spinner fa-spin loader"
+  ></div>
+  <label for="floatingInput">{{ label }}</label>
+  <div *ngIf="control.errors?.['required']" class="invalid-feedback">
+    Please enter your {{ label }}
+  </div>
+  <div *ngIf="control.errors?.['email']" class="invalid-feedback">
+    Invalid email address
+  </div>
+  <div *ngIf="control.errors?.['emailExists']" class="invalid-feedback">
+    Email address is taken
+  </div>
+
+  <div *ngIf="control?.errors?.['invalidCardNumber']" class="invalid-feedback">
+    Card number invalid
+  </div>
+  <div *ngIf="control?.errors?.['invalidCVV']" class="invalid-feedback">
+    CVV number invalid
+  </div>
+  <div *ngIf="control?.errors?.['expired']" class="invalid-feedback">
+    Card date is invalid
+  </div>
+
+  <div *ngIf="control.errors?.['pattern']" class="mt-2">
+    <strong class="fw-bold text-body-tertiary">Password must have: </strong>
+    <ul>
+      <li
+        [ngClass]="hasUppercase(control.value) ? 'text-success' : 'text-danger'"
+      >
+        1 Uppercase
+      </li>
+      <li
+        [ngClass]="hasLowercase(control.value) ? 'text-success' : 'text-danger'"
+      >
+        1 Lowercase
+      </li>
+      <li
+        [ngClass]="
+          hasNonAlphanumeric(control.value) ? 'text-success' : 'text-danger'
+        "
+      >
+        1 Non alphanumeric
+      </li>
+      <li
+        [ngClass]="
+          isMinOfSixChar(control.value) ? 'text-success' : 'text-danger'
+        "
+      >
+        min of 6 characters
+      </li>
+    </ul>
+  </div>
+</div>

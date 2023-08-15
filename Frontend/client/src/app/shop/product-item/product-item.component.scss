@@ -1,0 +1,42 @@
+.card-image{
+    cursor: pointer;
+
+    .hover-overlay:hover{
+        opacity: 1;
+        .btn{
+            transform: none;
+            opacity: 1;
+        }
+    }
+    
+    .btn{
+        min-width: 30%;
+        width: fit-content;
+        padding: 0 1em;
+        height: 40px;
+    }
+    
+    .hover-overlay{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        transition: all 0.4s;
+    
+        & button{
+            z-index: 1000;
+            transition: all 0.4s;
+        }
+
+        & button:first-of-type{
+            transform: translateX(-20px);
+        }
+        & button:last-of-type{
+            transform: translateX(20px);
+        }
+    }
+}
+

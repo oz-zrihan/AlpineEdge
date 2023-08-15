@@ -1,0 +1,30 @@
+<carousel [isAnimated]="true">
+  <slide>
+    <img class="carousel-image" src="assets/images/hero1.jpg" alt="slide" />
+  </slide>
+  <slide>
+    <img class="carousel-image" src="assets/images/hero2.jpg" alt="slide" />
+  </slide>
+  <slide>
+    <img class="carousel-image" src="assets/images/hero3.jpg" alt="slide" />
+  </slide>
+</carousel>
+
+<section class="featured">
+  <div class="d-flex justify-content-center pt-4">
+    <h1>Welcome to Alpine-Edge</h1>
+  </div>
+</section>
+
+<section class="row categories justify-content-center">
+  <div
+    (click)="selectType(t.typeId)"
+    *ngFor="let t of types"
+    class="card mb-4 col-3 px-0 mx-3"
+  >
+    <h3 class="card-header text-center p-2">{{ t.typeName }}</h3>
+    <div class="card-body p-0">
+      <img src="{{ baseImageUrl + t.image }}" alt="{{ t.typeName }}" />
+    </div>
+  </div>
+</section>

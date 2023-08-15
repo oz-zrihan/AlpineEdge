@@ -1,0 +1,28 @@
+.featured{
+   margin: 2em auto;
+}
+
+.carousel-image{
+    display: block;
+    width: 100%;
+
+}
+
+
+img{
+    object-fit: cover;
+    object-position: center;
+    height: 500px;
+    width: 100%;
+    transition: 7s;
+}
+
+.active{
+    img{
+        width: 110%;
+    }
+}
+
+.categories{
+    margin: 0 auto;
+}

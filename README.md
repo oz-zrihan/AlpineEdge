@@ -1,77 +1,91 @@
-# myVacationsApp
+# AlpineEdgeApp
 
-My Vacations App
+My AlpineEdge ski shop app
 
 This app where built with:
 
 Backend: NodeJs, Express, TypeScript.
-security: express-rate-limit, prevent-xss, helmet, hashing password with crypto ,and prevent Sql-injections.
+security: express-rate-limit, prevent-xss, helmet, cyber, hashing password with crypto ,and prevent Sql-injections...
 
-Database: SQL.
+Database: MySql.
 
-Frontend: React, Express, Redux, SASS, TypeScript.
+Frontend: Angular 16.1.0, Angular forms, rxjs, TypeScript, emailjs-com, SASS, bootstrap, bootswatch,ngx-bootstrap, xng-breadcrumb, font-awesome...
 
--- Docker: Docker files and Docker compose are ready inside.
+- All images created with Adobe firefly
+- All text (names, description, brands) created with ChatGPT
 
 ================================================================
 
-The application is made from user interface and admin interface.
-Both need to login first...
-
+sign-up & login pages
+![Sign-up Screen](/screenshots/signup.png)
 ![Login Screen](/screenshots/login.png)
 
-... or register
+====== Home Interface =====
 
-![Register Screen](/screenshots/register.png)
+Homepage is contain animated banner,
+and categories,
+click on one of the categories navigate to the shop with the corresponding filter
 
-====== User Interface =====
+![Homepage](/screenshots/home.png)
 
-The user then redirects to "vacations" page.
-the page is composed from filter menu...
+====== Shop Interface =====
 
-![Filter Menu](/screenshots/userFilter.png)
+The shop interface contains the products and filter & sorting menu.
+The user can sort the products by Alphabet or price Descending or Ascending.
+The user can filter the products by brand, type, or free text
 
-... and vacations cards.
-By clicking the "like" button the user will add the vacation to is "following" list
-![Vacation Card](/screenshots/userVacationCard.png)
-![Vacation Card](/screenshots/userVacationCardOpen.png)
+![Shop](/screenshots/shop.png)
+![Shop filtered](/screenshots/shop-filterd.png)
 
-====== Admin Interface =====
+also the user can add the product to his basket from this screen
 
-The admin will redirect to "admin-vacations" page.
-the page is composed from filter menu, add vacation button and reports button, also he's able to edit the header slider images
+![Add product to basket](/screenshots/shop-add-item.png)
 
-![Filter Menu](/screenshots/adminFilter.png)
-![Vacation Card](/screenshots/adminAddVacation.png)
+====== Product Interface =====
 
-On the top of the "vacation card" the admin can see how many followers, this vacation have.
-also he can delete the vacation or edit it.
+In the product detail page the user have more descriptive information about the product,
+also the user get indication if he have this product in his basket.
+He can also add or remove the quantity of the product in the basket
 
-![Edit Vacation](/screenshots/adminVacationEdit.png)
+![Product page](/screenshots/item.png)
 
-By clicking the "add vacation" button the admin will redirect to "add-vacation" page.
+====== Basket Interface =====
 
-![Add Vacation](/screenshots/adminAddVacation.png)
+In this screen the user get a summery of his basket,
+he can edit it by adding or removing the quantity of a product
 
-By clicking the "Reports" button the admin will redirect to "admin-reports" page.
-there his got followers reports for each vacation, and filter menu to filter only "following vacation".
-also he's able to download the report as CSV file, the downloaded reports will correspond to the filters that were used.
+![Basket](/screenshots/basket.png)
 
-![Followers report](/screenshots/adminVacationFollowers.png)
+====== Checkout Interface =====
 
-Also he will see "vacations by country",
-where the admin can see the followers of each country and there email.
+The checkout interface is made using stepper with four steps:
+Client address, Shipping options, Order summary, Payment.
+After payment the client is redirected to "success page" where he could navigate to his orders list page.
 
-![Followers report](/screenshots/AdminCountryFollowers.png)
+![Order-address](/screenshots/order-address.png)
+![Order-shiping](/screenshots/order-shiping.png)
+![Order-summary](/screenshots/order-summary.png)
+![Order-payment](/screenshots/order-payment.png)
+![Order-success](/screenshots/order-success.png)
+
+====== Orders Interface =====
+
+In this page, the client can see his orders history,
+and he can click on one of them and see more information about it
+
+![Orders-list](/screenshots/orders-list.png)
+![Order-display](/screenshots/orders-display.png)
 
 ================================================================
 
 logging info:
 
-User:
-username: bryceGuestUser@gmail.com
-password: 0000
+username: oz@test.com
+password: Pa$$w0rd
 
-Admin:
-username: brycevaction@gmail.com
-password: brycevaction1234
+login info for emailjs:
+
+https://dashboard.emailjs.com/admin
+
+username: 'alpineedgestore@gmail.com'
+password: 'alpine123456'
